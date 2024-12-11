@@ -1,24 +1,29 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+// Importera CSS direkt i TypeScript-filen
+import './style.css';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+// Funktion som körs när användaren klickar på knapparna
+function answer(response: string): void {
+  alert(`Du valde: ${response}`);
+}
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+// Funktion som flyttar "Nej"-knappen när användaren rör över den
+function moveNoButton(): void {
+  const noButton = document.getElementById('noBtn') as HTMLButtonElement;
+
+  const randomX = Math.floor(Math.random() * 300) - 150;
+  const randomY = Math.floor(Math.random() * 300) - 150;
+
+  noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+}
+
+// Lägg till eventlyssnare för knapparna när sidan är laddad
+window.addEventListener('DOMContentLoaded', () => {
+  const yesButton = document.getElementById('yesBtn') as HTMLButtonElement;
+  const noButton = document.getElementById('noBtn') as HTMLButtonElement;
+
+  yesButton.addEventListener('click', () => {
+    answer('Ja');
+  });
+
+  noButton.addEventListener('mouseover', moveNoButton);
+});

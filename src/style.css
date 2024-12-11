@@ -7,38 +7,77 @@ body {
   height: 100vh;
   margin: 0;
   background-color: #f4f4f4;
-}
-
-.question-container {
   text-align: center;
 }
 
+/* Container för frågan och knapparna */
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Text */
 p {
   font-size: 20px;
   margin-bottom: 20px;
 }
 
+/* Separata divs för Ja-knapp och Nej-knapp */
+.yes-container, .no-container {
+  display: inline-block; /* Gör så att de ligger sida vid sida */
+  position: relative; /* Viktigt för att kunna positionera absolut inuti */
+  margin: 0 10px; /* Mellanrum mellan knapparna */
+}
+
+/* Knappar */
 button {
   padding: 10px 20px;
-  margin: 10px;
   font-size: 16px;
   cursor: pointer;
   border: none;
   border-radius: 5px;
 }
 
+/* Ja-knapp */
 .yes-btn {
   background-color: #4CAF50;
   color: white;
 }
 
+/* Nej-knapp */
 .no-btn {
   background-color: #f44336;
   color: white;
-  position: absolute; /* Viktigt för att kunna flytta knappen slumpmässigt */
-  transition: transform 0.3s ease; /* För en snygg rörelse */
+  position: absolute; /* Viktigt för att kunna flytta knappen */
+  transition: transform 0.3s ease;
 }
 
+/* Hover-effekt för Nej-knappen (flytta knappen slumpmässigt) */
 .no-btn:hover {
   background-color: #d32f2f;
+}
+
+/* Hjärtan-styling */
+.heart {
+  position: absolute;
+  font-size: 24px; /* Standardstorlek för hjärtat */
+  animation: fall linear infinite;
+  opacity: 0.8; /* Grundopacitet */
+  pointer-events: none; /* Gör så att man inte kan klicka på dem */
+}
+
+/* Hjärtan-animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg); /* Starta ovanför fönstret */
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg); /* Sluta vid fönstrets nederkant */
+    opacity: 0;
+  }
 }

@@ -1,29 +1,31 @@
-// Importera CSS direkt i TypeScript-filen
+// Importera CSS
 import './style.css';
 
-// Funktion som körs när användaren klickar på knapparna
-function answer(response: string): void {
-  alert(`Du valde: ${response}`);
+// Funktion som körs när användaren klickar på "Ja"-knappen
+function handleYesButtonClick(): void {
+  alert('Vi saknar dig också!');
 }
 
-// Funktion som flyttar "Nej"-knappen när användaren rör över den
+// Funktion som flyttar "Nej"-knappen till en slumpmässig position
 function moveNoButton(): void {
   const noButton = document.getElementById('noBtn') as HTMLButtonElement;
 
-  const randomX = Math.floor(Math.random() * 300) - 150;
-  const randomY = Math.floor(Math.random() * 300) - 150;
+  // Slumpmässiga positioner inom viewportens storlek
+  const randomX = Math.floor(Math.random() * window.innerWidth * 0.8); // Max 80% av fönstrets bredd
+  const randomY = Math.floor(Math.random() * window.innerHeight * 0.8); // Max 80% av fönstrets höjd
 
-  noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+  noButton.style.left = `${randomX}px`;
+  noButton.style.top = `${randomY}px`;
 }
 
-// Lägg till eventlyssnare för knapparna när sidan är laddad
+// Lägger till eventlyssnare när sidan är laddad
 window.addEventListener('DOMContentLoaded', () => {
   const yesButton = document.getElementById('yesBtn') as HTMLButtonElement;
   const noButton = document.getElementById('noBtn') as HTMLButtonElement;
 
-  yesButton.addEventListener('click', () => {
-    answer('Ja');
-  });
+  // Event för "Ja"-knappen
+  yesButton.addEventListener('click', handleYesButtonClick);
 
+  // Event för "Nej"-knappen
   noButton.addEventListener('mouseover', moveNoButton);
 });

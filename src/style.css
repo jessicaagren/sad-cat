@@ -1,3 +1,4 @@
+/* Grundinställningar */
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -10,6 +11,11 @@ body {
 
 .question-container {
   text-align: center;
+}
+
+p {
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 button {
@@ -29,8 +35,8 @@ button {
 .no-btn {
   background-color: #f44336;
   color: white;
-  position: relative;
-  transition: transform 0.3s ease;
+  position: absolute; /* Viktigt för att kunna flytta knappen slumpmässigt */
+  transition: transform 0.3s ease; /* För en snygg rörelse */
 }
 
 .no-btn:hover {

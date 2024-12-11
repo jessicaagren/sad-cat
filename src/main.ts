@@ -42,9 +42,13 @@ function createHearts(): void {
   const heartContainer = document.getElementById('heartContainer') as HTMLDivElement;
 
   for (let i = 0; i < 30; i++) {
-    const heart = document.createElement('div');
+    const heart = document.createElement('img');
     heart.classList.add('heart');
-    heart.textContent = '❤️'; // Använd emoji som hjärta
+    // heart.textContent = '❤️'; // Använd emoji som hjärta
+    heart.src = '../media/pixel-heart.png'; // Replace with your actual image path
+    heart.alt = 'Heart'; // Optional: Accessibility description
+    heart.width = 24; // Optional: Set the width (adjust as needed)
+    heart.height = 24; // Optional: Set the height (adjust as needed)
 
     // Slumpmässig startposition för hjärtan inom fönstret
     const randomX = Math.random() * (window.innerWidth - 30); // Håll hjärtan inom fönstret

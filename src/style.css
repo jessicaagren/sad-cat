@@ -83,26 +83,24 @@ button:hover {
   background-color: var(--wine);
 }
 
-/* Explosionseffekt för Nej-knappen */
 @keyframes explode {
   0% {
-    transform: scale(1) rotate(0deg); /* Startstorlek och rotation */
-    opacity: 1; /* Full opacitet */
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
   }
   50% {
-    transform: scale(1.5) rotate(45deg); /* Öka storleken och lägg till rotation */
-    opacity: 0.7; /* Minska opaciteten */
+    transform: scale(1.5) rotate(45deg);
+    opacity: 0.7;
   }
   100% {
-    transform: scale(0) rotate(90deg); /* Minska storleken och öka rotationen */
-    opacity: 0; /* Fullt osynlig */
+    transform: scale(0) rotate(90deg);
+    opacity: 0;
   }
 }
 
 .no-btn.explode {
-  animation: explode 0.5s ease-out forwards; /* Tillämpa explosionseffekten */
+  animation: explode 0.5s ease-out forwards;
 }
-
 
 #heartContainer {
   max-height: 1vh;

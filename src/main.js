@@ -2,6 +2,7 @@ import './style.css';
 function handleButtonClick(isYesButton) {
     const imgElement = document.querySelector('.cat-img');
     if (isYesButton) {
+        console.log('Yes button clicked');
         createHearts();
         const newImgElement = document.createElement('img');
         newImgElement.src = 'media/happy-cat.png';

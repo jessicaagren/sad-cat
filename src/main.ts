@@ -3,7 +3,12 @@ import './style.css';
 
 // Funktion som körs när användaren klickar på "Ja"-knappen
 function handleYesButtonClick(): void {
+  // Skapa hjärtan
   createHearts();
+
+  // Byt ut bilden till happy-cat
+  const imgElement = document.querySelector('img') as HTMLImageElement;
+  imgElement.src = 'media/happy-cat.png'; // Sökväg till den nya bilden
 }
 
 function moveNoButton(): void {

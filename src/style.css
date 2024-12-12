@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap');
 
 body {
-  font-family: 'Lobster', cursive;
+  font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
   margin: 0;
   background-color: var(--lightyellow);
   text-align: center;
@@ -29,9 +30,12 @@ body {
   align-items: flex-start;
 }
 
+h1 {
+  font-family: 'Lobster', cursive;
+}
+
 p {
   font-size: 24px;
-  font-family: 'Roboto', sans-serif;
   margin-bottom: 20px;
 }
 
@@ -78,6 +82,27 @@ button:hover {
 .no-btn:hover {
   background-color: var(--wine);
 }
+
+/* Explosionseffekt för Nej-knappen */
+@keyframes explode {
+  0% {
+    transform: scale(1) rotate(0deg); /* Startstorlek och rotation */
+    opacity: 1; /* Full opacitet */
+  }
+  50% {
+    transform: scale(1.5) rotate(45deg); /* Öka storleken och lägg till rotation */
+    opacity: 0.7; /* Minska opaciteten */
+  }
+  100% {
+    transform: scale(0) rotate(90deg); /* Minska storleken och öka rotationen */
+    opacity: 0; /* Fullt osynlig */
+  }
+}
+
+.no-btn.explode {
+  animation: explode 0.5s ease-out forwards; /* Tillämpa explosionseffekten */
+}
+
 
 #heartContainer {
   max-height: 1vh;

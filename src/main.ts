@@ -8,6 +8,7 @@ function handleButtonClick(isYesButton: boolean): void {
     imgElement.src = 'media/happy-cat.png';
   } else {
     imgElement.src = 'media/sad-cat.png';
+    triggerExplosion(); // Trigger explosion when 'No' button is clicked
   }
 }
 
@@ -57,4 +58,16 @@ function createHearts(): void {
       heart.remove();
     }, duration * 1000);
   }
+}
+
+function triggerExplosion(): void {
+  const noButton = document.getElementById('noBtn') as HTMLButtonElement;
+
+  // Lägg till explosionseffekt
+  noButton.classList.add('explode');
+
+  // Ta bort knappen från DOM efter explosionen
+  setTimeout(() => {
+    noButton.remove();
+  }, 500); // Explosionseffektens varaktighet (0.5s)
 }

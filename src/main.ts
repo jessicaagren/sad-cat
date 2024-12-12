@@ -4,6 +4,8 @@ function handleButtonClick(isYesButton: boolean): void {
   const imgElement = document.querySelector('.cat-img') as HTMLImageElement;
 
   if (isYesButton) {
+    console.log('Yes button clicked');
+
     createHearts();
     
     const newImgElement = document.createElement('img');

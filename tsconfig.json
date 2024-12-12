@@ -20,5 +20,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "dist/main.js"]
+  "include": ["src", "src/main.js"]
 }

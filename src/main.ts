@@ -1,12 +1,19 @@
 import './style.css';
 
 function handleButtonClick(isYesButton: boolean): void {
-  const imgElement = document.querySelector('img') as HTMLImageElement;
+  const imgElement = document.querySelector('.cat-img') as HTMLImageElement;
 
   if (isYesButton) {
     createHearts();
-    imgElement.src = 'media/happy-cat.png';
     
+    const newImgElement = document.createElement('img');
+    newImgElement.src = 'media/happy-cat.png';
+    newImgElement.className = 'cat-img';
+    newImgElement.width = 300;
+    newImgElement.height = 300;
+
+    imgElement.parentNode?.replaceChild(newImgElement, imgElement);
+
     const headingText = document.getElementById('heading-text') as HTMLHeadingElement;
     headingText.innerHTML = 'Yippeeee!!!';
   
@@ -17,18 +24,18 @@ function handleButtonClick(isYesButton: boolean): void {
     nextButton.textContent = 'Klicka här';
 
     nextButton.onclick = () => {
-    window.location.href = 'thirdPage.html';
-  };
+      window.location.href = 'thirdPage.html';
+    };
 
-  buttonWrapper.innerHTML = '';
-  buttonWrapper.appendChild(nextButton);
+    buttonWrapper.innerHTML = '';
+    buttonWrapper.appendChild(nextButton);
 
-  const noButton = document.getElementById('noBtn') as HTMLButtonElement;
-  noButton.remove();
+    const noButton = document.getElementById('noBtn') as HTMLButtonElement;
+    noButton.remove();
 
   } else {
     imgElement.src = 'media/sad-cat.png';
-    triggerExplosion(); // Trigger explosion when 'No' button is clicked
+    triggerExplosion();
   }
 }
 

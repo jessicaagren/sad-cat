@@ -24,6 +24,19 @@ body {
   --lightyellow: #EDD8A6;
 }
 
+#arrow-span {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.arrow-left {
+  height: 60px;
+  width: 60px;
+}
+
 .question-container {
   display: flex;
   flex-direction: column;

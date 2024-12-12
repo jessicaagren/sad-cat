@@ -6,6 +6,26 @@ function handleButtonClick(isYesButton: boolean): void {
   if (isYesButton) {
     createHearts();
     imgElement.src = 'media/happy-cat.png';
+    // Hide the buttons and display "Yippeeee!!!"
+    const headingText = document.getElementById('heading-text') as HTMLHeadingElement;
+    headingText.innerHTML = 'Yippeeee!!!';
+  
+    const buttonWrapper = document.querySelector('.button-wrapper') as HTMLDivElement;
+    const nextButton = document.createElement('button');
+    nextButton.id = 'nextBtn';
+    nextButton.className = 'next-btn';
+    nextButton.textContent = 'Klicka här';
+
+    nextButton.onclick = () => {
+    window.location.href = 'thirdPage.html';
+  };
+
+  buttonWrapper.innerHTML = '';
+  buttonWrapper.appendChild(nextButton);
+
+  const noButton = document.getElementById('noBtn') as HTMLButtonElement;
+  noButton.remove();
+
   } else {
     imgElement.src = 'media/sad-cat.png';
     triggerExplosion(); // Trigger explosion when 'No' button is clicked

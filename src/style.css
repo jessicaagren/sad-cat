@@ -10,6 +10,17 @@ body {
   text-align: center;
 }
 
+:root {
+  --black: #0A0A0A;
+  --wine: #6C3C4B;
+  --tounge: #A45164;
+  --barbie: #E2778E;
+  --brown: #A55943;
+  --orange: #E79E5A;
+  --beige: #EEAD8C;
+  --lightyellow: #EDD8A6;
+}
+
 /* Container för frågan och knapparna */
 .question-container {
   display: flex;

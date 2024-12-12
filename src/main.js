@@ -1,13 +1,32 @@
 import './style.css';
 function handleButtonClick(isYesButton) {
-    const imgElement = document.querySelector('img');
+    const imgElement = document.querySelector('.cat-img');
     if (isYesButton) {
         createHearts();
-        imgElement.src = 'media/happy-cat.png';
+        const newImgElement = document.createElement('img');
+        newImgElement.src = 'media/happy-cat.png';
+        newImgElement.className = 'cat-img';
+        newImgElement.width = 300;
+        newImgElement.height = 300;
+        imgElement.parentNode?.replaceChild(newImgElement, imgElement);
+        const headingText = document.getElementById('heading-text');
+        headingText.innerHTML = 'Yippeeee!!!';
+        const buttonWrapper = document.querySelector('.button-wrapper');
+        const nextButton = document.createElement('button');
+        nextButton.id = 'nextBtn';
+        nextButton.className = 'next-btn';
+        nextButton.textContent = 'Klicka här';
+        nextButton.onclick = () => {
+            window.location.href = 'thirdPage.html';
+        };
+        buttonWrapper.innerHTML = '';
+        buttonWrapper.appendChild(nextButton);
+        const noButton = document.getElementById('noBtn');
+        noButton.remove();
     }
     else {
         imgElement.src = 'media/sad-cat.png';
-        triggerExplosion(); // Trigger explosion when 'No' button is clicked
+        triggerExplosion();
     }
 }
 window.addEventListener('DOMContentLoaded', () => {
@@ -50,10 +69,8 @@ function createHearts() {
 }
 function triggerExplosion() {
     const noButton = document.getElementById('noBtn');
-    // Lägg till explosionseffekt
     noButton.classList.add('explode');
-    // Ta bort knappen från DOM efter explosionen
     setTimeout(() => {
         noButton.remove();
-    }, 500); // Explosionseffektens varaktighet (0.5s)
+    }, 500);
 }

@@ -23,12 +23,18 @@ p {
   margin-bottom: 20px;
 }
 
-/* Separata divs för Ja-knapp och Nej-knapp */
-.yes-container, .no-container {
-  display: inline-block; /* Gör så att de ligger sida vid sida */
-  position: relative; /* Viktigt för att kunna positionera absolut inuti */
-  margin: 0 10px; /* Mellanrum mellan knapparna */
+/* Buttons-container med flexbox */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
+
+/* Enskilda knappars omslag */
+.button-wrapper {
+  position: relative; /* Gör att Nej-knappen kan flytta sig internt */
+}
+
 
 /* Knappar */
 button {
@@ -47,10 +53,12 @@ button {
 
 /* Nej-knapp */
 .no-btn {
-  background-color: #f44336;
+  background-color: #d32f2f;
   color: white;
-  position: absolute; /* Viktigt för att kunna flytta knappen */
-  transition: transform 0.3s ease;
+  position: absolute; /* Viktigt för att flyttningen ska fungera med transform */
+  left: 0; /* Startposition */
+  top: 0; /* Startposition */
+  transition: transform 0.3s ease; /* Smidig rörelse vid flytt */
 }
 
 /* Hover-effekt för Nej-knappen (flytta knappen slumpmässigt) */
@@ -61,23 +69,23 @@ button {
 /* Hjärtan-styling */
 .heart {
   position: absolute;
-  font-size: 24px; /* Standardstorlek för hjärtat */
+  font-size: 24px;
   animation: fall linear infinite;
-  opacity: 0.8; /* Grundopacitet */
-  pointer-events: none; /* Gör så att man inte kan klicka på dem */
+  opacity: 0.8;
+  pointer-events: none;
 }
 
 /* Hjärtan-animation */
 @keyframes fall {
   0% {
-    transform: translateY(-100px) rotate(0deg); /* Starta ovanför fönstret */
+    transform: translateY(-100px) rotate(0deg);
     opacity: 1;
   }
   50% {
     opacity: 0.9;
   }
   100% {
-    transform: translateY(100vh) rotate(360deg); /* Sluta vid fönstrets nederkant */
+    transform: translateY(100vh) rotate(360deg);
     opacity: 0;
   }
 }

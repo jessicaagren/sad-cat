@@ -6,35 +6,22 @@ function handleYesButtonClick(): void {
   createHearts();
 }
 
-// Funktion som flyttar "Nej"-knappen inom ett begränsat område vid hover
 function moveNoButton(): void {
   const noButton = document.getElementById('noBtn') as HTMLButtonElement;
+  const buttonWrapper = noButton.parentElement as HTMLElement; // Föräldern som har position: relative
 
-  // Fönstrets mittpunkt
-  const centerX = window.innerWidth / 2;
-  const centerY = window.innerHeight / 2;
+  // Radie för slumpmässig rörelse
+  const radius = 50;
 
-  // Definiera en radie för hur mycket knappen kan hoppa (t.ex. 100px från mitten)
-  const radius = 100;
-
-  // Slumpmässig vinkel inom intervallet [0, 2π] för att skapa en cirkulär rörelse
+  // Slumpmässig vinkel för att beräkna position på cirkeln
   const randomAngle = Math.random() * 2 * Math.PI;
 
-  // Beräkna den slumpmässiga positionen på cirkeln
-  const randomX = centerX + radius * Math.cos(randomAngle); // X-position
-  const randomY = centerY + radius * Math.sin(randomAngle); // Y-position
+  // Beräkna nya koordinater relativt till föräldern (buttonWrapper)
+  const randomX = radius * Math.cos(randomAngle); // X-position
+  const randomY = radius * Math.sin(randomAngle); // Y-position
 
-  // Säkerställa att knappen inte går utanför fönstret
-  const buttonWidth = noButton.offsetWidth;
-  const buttonHeight = noButton.offsetHeight;
-
-  // Begränsa positionen så att knappen inte går utanför fönstret
-  const clampedX = Math.max(0, Math.min(randomX, window.innerWidth - buttonWidth));
-  const clampedY = Math.max(0, Math.min(randomY, window.innerHeight - buttonHeight));
-
-  // Sätt den nya positionen för "Nej"-knappen
-  noButton.style.left = `${clampedX}px`;
-  noButton.style.top = `${clampedY}px`;
+  // Uppdatera knappen med nya positioner
+  noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
 }
 
 // Funktion för att skapa hjärtan med emoji

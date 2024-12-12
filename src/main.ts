@@ -6,7 +6,7 @@ function handleButtonClick(isYesButton: boolean): void {
   if (isYesButton) {
     createHearts();
     imgElement.src = 'media/happy-cat.png';
-    // Hide the buttons and display "Yippeeee!!!"
+    
     const headingText = document.getElementById('heading-text') as HTMLHeadingElement;
     headingText.innerHTML = 'Yippeeee!!!';
   

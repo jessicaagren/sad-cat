@@ -8,10 +8,9 @@ function handleYesButtonClick(): void {
 
 function moveNoButton(): void {
   const noButton = document.getElementById('noBtn') as HTMLButtonElement;
-  const buttonWrapper = noButton.parentElement as HTMLElement; // Föräldern som har position: relative
 
   // Radie för slumpmässig rörelse
-  const radius = 50;
+  const radius = 100;
 
   // Slumpmässig vinkel för att beräkna position på cirkeln
   const randomAngle = Math.random() * 2 * Math.PI;

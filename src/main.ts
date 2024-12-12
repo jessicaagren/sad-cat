@@ -1,15 +1,25 @@
 import './style.css';
 
-function handleYesButtonClick(): void {
-  createHearts();
+function handleButtonClick(isYesButton: boolean): void {
   const imgElement = document.querySelector('img') as HTMLImageElement;
-  imgElement.src = 'media/happy-cat.png';
+
+  if (isYesButton) {
+    createHearts();
+    imgElement.src = 'media/happy-cat.png';
+  } else {
+    imgElement.src = 'media/sad-cat.png';
+  }
 }
 
-function handleNoButtonClick(): void {
-  const imgElement = document.querySelector('img') as HTMLImageElement;
-  imgElement.src = 'media/sad-cat.png';
-}
+window.addEventListener('DOMContentLoaded', () => {
+  const yesButton = document.getElementById('yesBtn') as HTMLButtonElement;
+  const noButton = document.getElementById('noBtn') as HTMLButtonElement;
+
+  yesButton.addEventListener('click', () => handleButtonClick(true));
+
+  noButton.addEventListener('click', () => handleButtonClick(false));
+  noButton.addEventListener('mouseover', moveNoButton);
+});
 
 function moveNoButton(): void {
   const noButton = document.getElementById('noBtn') as HTMLButtonElement;
@@ -48,12 +58,3 @@ function createHearts(): void {
     }, duration * 1000);
   }
 }
-
-window.addEventListener('DOMContentLoaded', () => {
-  const yesButton = document.getElementById('yesBtn') as HTMLButtonElement;
-  const noButton = document.getElementById('noBtn') as HTMLButtonElement;
-
-  yesButton.addEventListener('click', handleYesButtonClick);
-  noButton.addEventListener('click', handleNoButtonClick);
-  noButton.addEventListener('mouseover', moveNoButton);
-});

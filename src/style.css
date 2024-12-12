@@ -1,14 +1,13 @@
-/* Grundinställningar */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap');
 
 body {
-  font-family: 'Lobster', cursive; /* Lekfullt huvudtypsnitt */
+  font-family: 'Lobster', cursive;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: var(--lightyellow); /* Använder root-variabeln */
+  background-color: var(--lightyellow);
   text-align: center;
   color: var(--black);
 }
@@ -21,45 +20,40 @@ body {
   --brown: #A55943;
   --orange: #E79E5A;
   --beige: #EEAD8C;
-  --lightyellow: #EDD8A6; /* Bakgrundsfärg som används */
+  --lightyellow: #EDD8A6;
 }
 
-/* Container för frågan och knapparna */
 .question-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Text */
 p {
-  font-size: 24px; /* Lite större textstorlek */
-  font-family: 'Roboto', sans-serif; /* Modernt och lättläst */
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
   margin-bottom: 20px;
 }
 
-/* Buttons-container med flexbox */
 .buttons-container {
   display: flex;
   justify-content: center;
   gap: 20px;
 }
 
-/* Enskilda knappars omslag */
 .button-wrapper {
-  position: relative; /* Gör att Nej-knappen kan flytta sig internt */
+  position: relative;
 }
 
-/* Knappar */
 button {
   padding: 12px 24px;
-  font-size: 18px; /* Större och lättare att klicka */
-  font-family: 'Roboto', sans-serif; /* Modern text för knappar */
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   cursor: pointer;
   border: none;
   border-radius: 10px;
-  transition: transform 0.2s, box-shadow 0.2s; /* Smidig hover-effekt */
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
@@ -67,23 +61,20 @@ button:hover {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Ja-knapp */
 .yes-btn {
   background-color: var(--orange);
   color: white;
 }
 
-/* Nej-knapp */
 .no-btn {
   background-color: var(--barbie);
   color: white;
-  position: absolute; /* Viktigt för att flyttningen ska fungera med transform */
-  left: 0; /* Startposition */
-  top: 0; /* Startposition */
-  transition: transform 0.3s ease; /* Smidig rörelse vid flytt */
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 0.3s ease;
 }
 
-/* Hover-effekt för Nej-knappen */
 .no-btn:hover {
   background-color: var(--wine);
 }
@@ -92,7 +83,6 @@ button:hover {
   max-height: 1vh;
 }
 
-/* Hjärtan-styling */
 .heart {
   position: fixed;
   font-size: 24px;
@@ -102,17 +92,32 @@ button:hover {
   top: -30px;
 }
 
-/* Hjärtan-animation */
-@keyframes fall {
+@keyframes fallLeft {
   0% {
-    transform: translateY(0) rotate(0deg); /* Starta vid toppen */
+    transform: translateY(-100px) rotate(0deg);
     opacity: 1;
   }
   50% {
-    opacity: 0.9; /* Justera för en mjuk fade */
+    transform: translateX(-50px) translateY(50vh) rotate(-45deg);
+    opacity: 0.8;
   }
   100% {
-    transform: translateY(100vh) rotate(360deg); /* Sluta längst ner i viewporten */
+    transform: translateX(-100px) translateY(100vh) rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fallRight {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(50px) translateY(50vh) rotate(45deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100px) translateY(100vh) rotate(90deg);
     opacity: 0;
   }
 }

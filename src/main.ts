@@ -83,11 +83,9 @@ function createHearts(): void {
 function triggerExplosion(): void {
   const noButton = document.getElementById('noBtn') as HTMLButtonElement;
 
-  // Lägg till explosionseffekt
   noButton.classList.add('explode');
 
-  // Ta bort knappen från DOM efter explosionen
   setTimeout(() => {
     noButton.remove();
-  }, 500); // Explosionseffektens varaktighet (0.5s)
+  }, 500);
 }

@@ -30,20 +30,17 @@ function createHearts(): void {
   for (let i = 0; i < 30; i++) {
     const heart = document.createElement('img');
     heart.classList.add('heart');
-    // heart.textContent = '❤️'; // Använd emoji som hjärta
-    heart.src = '../media/pixel-heart.png'; // Replace with your actual image path
-    heart.alt = 'Heart'; // Optional: Accessibility description
-    heart.width = 24; // Optional: Set the width (adjust as needed)
-    heart.height = 24; // Optional: Set the height (adjust as needed)
+    heart.src = '../media/pixel-heart.png';
+    heart.alt = 'Heart';
+    heart.width = 24;
+    heart.height = 24;
 
-    // Slumpmässig startposition för hjärtan inom fönstret
-    const randomX = Math.random() * (window.innerWidth - 30); // Håll hjärtan inom fönstret
-    const randomSize = Math.random() * 1.5 + 0.8; // Fontstorlek mellan 0.8em och 2.3em
-    const duration = Math.random() * 2 + 3; // Mellan 3 och 5 sekunder
+    const randomX = Math.random() * window.innerWidth;
+    const randomSize = Math.random() * 1.5 + 0.8;
+    const duration = Math.random() * 2 + 3;
 
-    // Tilldela slumpmässig position och storlek
     heart.style.left = `${randomX}px`;
-    heart.style.fontSize = `${randomSize}em`;
+    heart.style.fontSize = `scale(${randomSize})`;
     heart.style.animationDuration = `${duration}s`;
 
     // Lägg till hjärtat i DOM

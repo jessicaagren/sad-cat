@@ -78,7 +78,7 @@ button {
 }
 
 /* Hjärtan-styling */
-.heart {
+/* .heart {
   position: absolute;
   font-size: 24px;
   animation: fall linear infinite;
@@ -87,7 +87,7 @@ button {
 }
 
 /* Hjärtan-animation */
-@keyframes fall {
+/* @keyframes fall {
   0% {
     transform: translateY(-100px) rotate(0deg);
     opacity: 1;
@@ -97,6 +97,33 @@ button {
   }
   100% {
     transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+} */
+
+
+
+/* Hjärtan-styling */
+.heart {
+  position: fixed; /* Håll hjärtana inom viewporten */
+  top: -30px; /* Börja precis ovanför skärmen */
+  font-size: 24px;
+  animation: fall linear infinite;
+  opacity: 0.8;
+  pointer-events: none; /* Gör att musen ignorerar hjärtana */
+}
+
+/* Hjärtan-animation */
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg); /* Starta vid toppen */
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9; /* Justera för en mjuk fade */
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg); /* Sluta längst ner i viewporten */
     opacity: 0;
   }
 }

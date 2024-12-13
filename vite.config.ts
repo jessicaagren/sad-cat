@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: './sad-cat/',
+  base: '/',
 
   build: {
     rollupOptions: {

@@ -5,7 +5,7 @@ function handleButtonClick(isYesButton) {
         console.log('Yes button clicked');
         createHearts();
         const newImgElement = document.createElement('img');
-        newImgElement.src = 'media/happy-cat.png';
+        newImgElement.src = '/media/happy-cat.png';
         newImgElement.className = 'cat-img';
         newImgElement.width = 300;
         newImgElement.height = 300;
@@ -18,7 +18,7 @@ function handleButtonClick(isYesButton) {
         nextButton.className = 'next-btn';
         nextButton.textContent = 'Klicka här';
         nextButton.onclick = () => {
-            window.location.href = 'thirdPage.html';
+            window.location.href = '/thirdPage.html';
         };
         buttonWrapper.innerHTML = '';
         buttonWrapper.appendChild(nextButton);
@@ -26,7 +26,7 @@ function handleButtonClick(isYesButton) {
         noButton.remove();
     }
     else {
-        imgElement.src = 'media/sad-cat.png';
+        imgElement.src = '/media/sad-cat.png';
         triggerExplosion();
     }
 }
@@ -50,7 +50,7 @@ function createHearts() {
     for (let i = 0; i < 200; i++) {
         const heart = document.createElement('img');
         heart.classList.add('heart');
-        heart.src = '../media/pixel-heart.png';
+        heart.src = '/media/pixel-heart.png';
         heart.alt = 'Heart';
         const randomX = Math.random() * window.innerWidth;
         const randomSize = Math.random() * 30 + 20;

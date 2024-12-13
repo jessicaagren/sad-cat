@@ -5,8 +5,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
-        second: 'secondPage.html',
-        third: 'thirdPage.html',
+        second: 'public/secondPage.html',
+        third: 'public/thirdPage.html',
       },
     },
   },

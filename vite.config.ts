@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+    base: './', // Gör så att alla resurser använder relativa länkar
+
   build: {
     rollupOptions: {
       input: {
